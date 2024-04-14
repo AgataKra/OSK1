@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 namespace OSK1
 {
     partial class Form1
@@ -11,15 +12,15 @@ namespace OSK1
         private char turn = 'x';
         private bool game = false;
         private char result;
-        private string bluex = "blue_x.png";
-        private string blackx = "black_x.png";
-        private string blueo = "blue_circle.png";
-        private string blacko = "black_circle.png";
-        private string blackback = "black_square.png";
-        private string blueback = "blue_square.png";
-        private string picturex;
-        private string pictureo;
-        private string pictureback;
+        //private string bluex = "blue_x.png";
+        //private string blackx = "black_x.png";
+        //private string blueo = "blue_circle.png";
+        //private string blacko = "black_circle.png";
+        //private string blackback = "black_square.png";
+        //private string blueback = "blue_square.png";
+        private Image picturex;
+        private Image pictureo;
+        private Image pictureback;
         private string theme = "light";
         private char[] moves = new char[9];
         private bool pause = false;

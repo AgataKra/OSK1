@@ -17,9 +17,9 @@ namespace OSK1
             InitializeComponent();
             this.timertx.Stop();
             this.timerto.Stop();
-            this.picturex = this.blackx;
-            this.pictureo = this.blacko;
-            this.pictureback = this.blackback;
+            this.picturex = OSK1.Properties.Resources.black_x;
+            this.pictureo = OSK1.Properties.Resources.black_circle;
+            this.pictureback = OSK1.Properties.Resources.black_square;
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -48,18 +48,18 @@ namespace OSK1
             switch (this.theme)
             {
                 case "light":
-                    this.picturex = this.blackx;
-                    this.pictureo = this.blacko;
-                    this.pictureback = this.blackback;
+                    this.picturex = OSK1.Properties.Resources.black_x;
+                    this.pictureo = OSK1.Properties.Resources.black_circle;
+                    this.pictureback = OSK1.Properties.Resources.black_square;
                     this.BackColor = Color.White;
                     labelcolor = Color.Black;
                     panelcolor = Color.White;
                     break;
 
                 case "dark":
-                    this.picturex = this.bluex;
-                    this.pictureo = this.blueo;
-                    this.pictureback = this.blueback;
+                    this.picturex = OSK1.Properties.Resources.blue_x;
+                    this.pictureo = OSK1.Properties.Resources.blue_circle;
+                    this.pictureback = OSK1.Properties.Resources.blue_square;
                     this.BackColor = Color.Black;
                     labelcolor = Color.LightSkyBlue;
                     panelcolor = Color.Black;
@@ -68,11 +68,11 @@ namespace OSK1
             for (int i = 0; i < boxes.Length; i++)
             {
                 if (this.moves[i] == 'x')
-                    boxes[i].Load(this.picturex);
+                    boxes[i].Image = this.picturex;
                 else if (this.moves[i] == 'o')
-                    boxes[i].Load(this.pictureo);
+                    boxes[i].Image = this.pictureo;
                 else
-                    boxes[i].Load(this.pictureback);
+                    boxes[i].Image = this.pictureback;
                 panels[i].BackColor = panelcolor;
             }
             for(int i = 0; i < labels.Length; i++)
@@ -156,7 +156,7 @@ namespace OSK1
                 return;
             } 
             // Draw
-            else if (this.turncount == 9)
+            else if (this.turncount > 9)
                 this.end_Game('d');
         }
         private void buttongame_Click(object sender, EventArgs e)
@@ -253,7 +253,7 @@ namespace OSK1
                 return;
             if (this.turn == 'x')
             {
-                box.Load(picturex);
+                box.Image = picturex;
                 this.check_State();
                 if (!this.game)
                     return;
@@ -262,7 +262,7 @@ namespace OSK1
             }
             else if (this.turn == 'o')
             {
-                box.Load(pictureo);
+                box.Image = pictureo;
                 this.check_State();
                 if (!this.game)
                     return;
@@ -353,12 +353,10 @@ namespace OSK1
                 this.buttonstat.PerformClick();
             }
         }
-
         private void label1_Click(object sender, EventArgs e)
         {
 
         }
-
         private void set_time_Click(object sender, EventArgs e)
         {
             if (this.game)

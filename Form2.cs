@@ -22,7 +22,6 @@ namespace OSK1
                     timexresults[i].ToString(), timeoresults[i].ToString(), timelimits[i].ToString());
             }
         }
-
         private void Form2_Load(object sender, EventArgs e)
         {
 
